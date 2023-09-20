@@ -2,6 +2,7 @@ package org.tutorial;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Stream;
 
 public class Creatingstreams {
@@ -36,6 +37,12 @@ public class Creatingstreams {
         Stream<Integer> liststream = list.stream();
         System.out.println("List Elements in Stream using stream.of");
         liststream.forEach(p-> System.out.println(p));
+
+        //generating Stream using the stream.generate or iterate()
+
+        Stream<Integer> generateStream = Stream.generate(()->(new Random()).nextInt(100));
+        System.out.println("Random elements using Stream.generate:");
+        generateStream.limit(20).forEach(System.out::println);
 
 
     }
